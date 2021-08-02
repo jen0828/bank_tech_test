@@ -27,4 +27,10 @@ describe BankAccount do
   describe '#add_transaction' do
     it { is_expected.to respond_to(:add_transaction).with(4).arguments }
   end
+
+  describe '#print_all' do
+    it 'shows all transactions in reverse order' do
+      expect(subject).to respond_to(:print_all)
+    end
+  end
 end

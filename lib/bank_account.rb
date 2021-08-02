@@ -20,4 +20,8 @@ class BankAccount
   def add_transaction(date, type, amount, balance)
     @transactions.push(date: date, type: type, amount: amount, balance: balance)
   end
+
+  def print_all
+    @transactions.reverse
+  end
 end
