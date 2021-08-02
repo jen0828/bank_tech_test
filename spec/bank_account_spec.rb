@@ -6,31 +6,25 @@ describe BankAccount do
     expect(bank_account.balance).to eq(0)
   end
 
-  it 'can deposite money'do
+  it 'can deposite money' do
     bank_account = BankAccount.new
-    expect(bank_account.deposite(10)).to eq(10)
+    expect(bank_account.deposite(10)).to include({ amount: 10, balance: 10, date: '02/08/2021',
+                                                   type: 'credit' })
   end
 
-  it 'can withdraw money'do
+  it 'can withdraw money' do
     bank_account = BankAccount.new
-    expect(bank_account.withdraw(10)).to eq(-10)
+    expect(bank_account.withdraw(10)).to include({ amount: 10, balance: -10, date: '02/08/2021',
+                                                   type: 'debit' })
   end
 
   it 'has an empty list of transactions by default' do
     expect(subject.transactions).to be_empty
   end
 
-  it { is_expected.to respond_to(:date)}
+  it { is_expected.to respond_to(:date) }
 
   describe '#add_transaction' do
-    it {is_expected.to respond_to(:add_transaction).with(4).arguments}
+    it { is_expected.to respond_to(:add_transaction).with(4).arguments }
   end
-  
 end
-
-# describe '#top_up' do
-#   it { is_expected.to respond_to(:top_up).with(1).argument }
-
-#   it 'can top up the balance' do
-#     expect { subject.top_up 1 }.to change { subject.balance }.by 1
-#   end

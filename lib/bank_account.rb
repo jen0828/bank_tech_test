@@ -3,18 +3,21 @@ class BankAccount
 
   def initialize
     @balance = 0
-    @date = Time.now.strftime "%d/%m/%Y"  
-    @transactions =[]
+    @date = Time.now.strftime '%d/%m/%Y'
+    @transactions = []
   end
 
-  def deposite (amount)
+  def deposite(amount)
     @balance += amount
+    add_transaction(@date, type = 'credit', amount, balance)
   end
 
-  def withdraw (amount)
+  def withdraw(amount)
     @balance -= amount
+    add_transaction(@date, type = 'debit', amount, balance)
   end
 
   def add_transaction(date, type, amount, balance)
+    @transactions.push(date: date, type: type, amount: amount, balance: balance)
   end
 end
