@@ -15,4 +15,10 @@ describe BankAccount do
     bank_account = BankAccount.new
     expect(bank_account.withdraw(10)).to eq(-10)
   end
+
+  it 'has an empty list of transactions by default' do
+    expect(subject.transactions).to be_empty
+  end
+
+
 end
