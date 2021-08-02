@@ -20,5 +20,5 @@ describe BankAccount do
     expect(subject.transactions).to be_empty
   end
 
-
+  it { is_expected.to respond_to(:date)}
 end

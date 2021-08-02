@@ -1,8 +1,9 @@
 class BankAccount
-  attr_reader :balance, :transactions
+  attr_reader :balance, :transactions, :date
 
   def initialize
     @balance = 0
+    @date = Time.now.strftime "%d/%m/%Y"  
     @transactions =[]
   end
 
