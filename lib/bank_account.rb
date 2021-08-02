@@ -14,4 +14,7 @@ class BankAccount
   def withdraw (amount)
     @balance -= amount
   end
+
+  def add_transaction(date, type, amount, balance)
+  end
 end
