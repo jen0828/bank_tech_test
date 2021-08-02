@@ -5,4 +5,9 @@ describe BankAccount do
     bank_account = BankAccount.new
     expect(bank_account.balance).to eq(0)
   end
+
+  it 'can deposite money'do
+    bank_account = BankAccount.new
+    expect(bank_account.deposite(10)).to eq(10)
+  end
 end
