@@ -10,4 +10,9 @@ describe BankAccount do
     bank_account = BankAccount.new
     expect(bank_account.deposite(10)).to eq(10)
   end
+
+  it 'can withdraw money'do
+    bank_account = BankAccount.new
+    expect(bank_account.withdraw(10)).to eq(-10)
+  end
 end
