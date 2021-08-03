@@ -24,7 +24,15 @@ class BankAccount
   def header
     'date || credit || debit || balance'
   end
-  
+
+  def format
+    @transactions.reverse.map do |transaction|
+      if transaction[:type] == 'credit'
+        puts "\n#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
+      else
+        transaction[:type] == 'debit'
+        puts "\n#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
+      end
+    end
+  end
 end
-
-

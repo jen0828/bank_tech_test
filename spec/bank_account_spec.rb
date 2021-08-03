@@ -1,7 +1,6 @@
 require 'bank_account'
 
 describe BankAccount do
-  
   it 'should have zero balance for a new account' do
     bank_account = BankAccount.new
     expect(bank_account.balance).to eq(0)
@@ -30,9 +29,12 @@ describe BankAccount do
   end
 
   describe '#header' do
-  it 'has statement heading' do
-    expect(subject.header).to eq('date || credit || debit || balance')
+    it 'has statement heading' do
+      expect(subject.header).to eq('date || credit || debit || balance')
+    end
   end
- end
-end
 
+  describe '#format' do
+    it { is_expected.to respond_to(:format) }
+  end
+end
