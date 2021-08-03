@@ -9,12 +9,12 @@ class BankAccount
 
   def deposite(amount)
     @balance += amount
-    add_transaction(@date, type = 'credit', amount, balance)
+    add_transaction(date, type = 'credit', amount, balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    add_transaction(@date, type = 'debit', amount, balance)
+    add_transaction(date, type = 'debit', amount, balance)
   end
 
   def add_transaction(date, type, amount, balance)
@@ -25,7 +25,8 @@ class BankAccount
     'date || credit || debit || balance'
   end
 
-  def format
+  def statement
+    puts header.to_s
     @transactions.reverse.map do |transaction|
       if transaction[:type] == 'credit'
         puts "\n#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"

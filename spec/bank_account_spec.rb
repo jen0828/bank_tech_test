@@ -34,7 +34,22 @@ describe BankAccount do
     end
   end
 
-  describe '#format' do
-    it { is_expected.to respond_to(:format) }
+  describe '#statement' do
+    it { is_expected.to respond_to(:statement) }
+
+    it 'can print-out a bank statement' do
+      bank_account = double(:bank_account)
+      transaction_1 = double({ date: '03/08/2021', type: 'credit', amount: 30.00, balance: 30.00 })
+      transaction_2 = double({ date: '03/08/2021', type: 'debit', amount: 20.00, balance: 10.00 })
+      allow(bank_account).to receive(:add_transaction).and_return([transaction_1, transaction_2])
+      expect(subject.statement).to include { transactions }
+      # ("
+      #   date || credit || debit || balance
+
+      #   03/08/2021 || || 20.00 || 10.00
+
+      #   03/08/2021 || 30.00 || || 30.00
+      # ")
+    end
   end
 end
