@@ -1,6 +1,7 @@
 require 'bank_account'
 
 describe BankAccount do
+  
   it 'should have zero balance for a new account' do
     bank_account = BankAccount.new
     expect(bank_account.balance).to eq(0)
@@ -8,13 +9,13 @@ describe BankAccount do
 
   it 'can deposite money' do
     bank_account = BankAccount.new
-    expect(bank_account.deposite(10)).to include({ amount: 10, balance: 10, date: '02/08/2021',
+    expect(bank_account.deposite(10)).to include({ amount: 10, balance: 10, date: bank_account.date,
                                                    type: 'credit' })
   end
 
   it 'can withdraw money' do
     bank_account = BankAccount.new
-    expect(bank_account.withdraw(10)).to include({ amount: 10, balance: -10, date: '02/08/2021',
+    expect(bank_account.withdraw(10)).to include({ amount: 10, balance: -10, date: bank_account.date,
                                                    type: 'debit' })
   end
 
@@ -34,3 +35,4 @@ describe BankAccount do
     end
   end
 end
+
