@@ -29,10 +29,10 @@ describe BankAccount do
     it { is_expected.to respond_to(:add_transaction).with(4).arguments }
   end
 
-  describe '#print_all' do
-    it 'shows all transactions in reverse order' do
-      expect(subject).to respond_to(:print_all)
-    end
+  describe '#header' do
+  it 'has statement heading' do
+    expect(subject.header).to eq('date || credit || debit || balance')
   end
+ end
 end
 

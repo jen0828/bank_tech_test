@@ -21,7 +21,10 @@ class BankAccount
     @transactions.push(date: date, type: type, amount: amount, balance: balance)
   end
 
-  def print_all
-    @transactions.reverse
+  def header
+    'date || credit || debit || balance'
   end
+  
 end
+
+
