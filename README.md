@@ -22,6 +22,8 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
+### Installation
+
 #### How to set up
 ```
 $ git clone https://github.com/jen0828/bank_tech_test.git

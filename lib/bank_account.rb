@@ -21,9 +21,7 @@ class BankAccount
     @transactions.push(date: date, type: type, amount: amount, balance: balance)
   end
 
-  def header
-    'date || credit || debit || balance'
-  end
+  
 
   def statement
     puts header.to_s
@@ -35,5 +33,11 @@ class BankAccount
         puts "\n#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
       end
     end
+  end
+
+  private
+
+  def header
+    'date || credit || debit || balance'
   end
 end

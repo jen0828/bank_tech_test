@@ -28,12 +28,6 @@ describe BankAccount do
     it { is_expected.to respond_to(:add_transaction).with(4).arguments }
   end
 
-  describe '#header' do
-    it 'has statement heading' do
-      expect(subject.header).to eq('date || credit || debit || balance')
-    end
-  end
-
   describe '#statement' do
     it { is_expected.to respond_to(:statement) }
 
@@ -43,13 +37,6 @@ describe BankAccount do
       transaction_2 = double({ date: '03/08/2021', type: 'debit', amount: 20.00, balance: 10.00 })
       allow(bank_account).to receive(:add_transaction).and_return([transaction_1, transaction_2])
       expect(subject.statement).to include { transactions }
-      # ("
-      #   date || credit || debit || balance
-
-      #   03/08/2021 || || 20.00 || 10.00
-
-      #   03/08/2021 || 30.00 || || 30.00
-      # ")
     end
   end
 end
