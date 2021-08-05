@@ -17,27 +17,9 @@ class BankAccount
     add_transaction(date, type = 'debit', amount, balance)
   end
 
-  def add_transaction(date, type, amount, balance)
-    @transactions.push(date: date, type: type, amount: amount, balance: balance)
-  end
-
-  
-
-  def statement
-    puts header.to_s
-    @transactions.reverse.map do |transaction|
-      if transaction[:type] == 'credit'
-        puts "\n#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
-      else
-        transaction[:type] == 'debit'
-        puts "\n#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
-      end
-    end
-  end
-
   private
 
-  def header
-    'date || credit || debit || balance'
+  def add_transaction(date, type, amount, balance)
+    @transactions.push(date: date, type: type, amount: amount, balance: balance)
   end
 end
