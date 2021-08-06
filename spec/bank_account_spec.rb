@@ -8,14 +8,14 @@ describe BankAccount do
 
   it 'can deposit money' do
     bank_account = BankAccount.new
-    expect(bank_account.deposit(10)).to include({ amount: 10, balance: 10, date: bank_account.date,
-                                                   type: 'credit' })
+    subject.deposit(10)
+    expect(subject.balance).to eq(10)
   end
 
   it 'can withdraw money' do
     bank_account = BankAccount.new
-    expect(bank_account.withdraw(10)).to include({ amount: 10, balance: -10, date: bank_account.date,
-                                                   type: 'debit' })
+    subject.withdraw(10)
+    expect(subject.balance).to eq(-10)
   end
 
   it 'has an empty list of transactions by default' do

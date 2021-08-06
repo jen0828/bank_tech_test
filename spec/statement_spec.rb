@@ -1,4 +1,3 @@
-require 'bank_account'
 require 'statement'
 
 describe Statement do
