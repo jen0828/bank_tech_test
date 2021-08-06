@@ -12,10 +12,28 @@ describe BankAccount do
     expect(subject.balance).to eq(10)
   end
 
+  it 'can deposit multiple times' do
+    bank_account = BankAccount.new
+    subject.deposit(10)
+    subject.deposit(10)
+    subject.deposit(10)
+    subject.deposit(10)
+    expect(subject.balance).to eq(40)
+  end
+
   it 'can withdraw money' do
     bank_account = BankAccount.new
     subject.withdraw(10)
     expect(subject.balance).to eq(-10)
+  end
+
+  it 'can deposit and withraw multiple times' do
+    bank_account = BankAccount.new
+    subject.deposit(10)
+    subject.withdraw(10)
+    subject.deposit(10)
+    subject.withdraw(10)
+    expect(subject.balance).to eq(0)
   end
 
   it 'has an empty list of transactions by default' do
@@ -23,5 +41,4 @@ describe BankAccount do
   end
 
   it { is_expected.to respond_to(:date) }
-  
 end

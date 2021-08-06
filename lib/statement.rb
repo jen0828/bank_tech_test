@@ -1,4 +1,3 @@
-require_relative 'bank_account'
 
 class Statement
   def print_statement
