@@ -6,9 +6,9 @@ describe BankAccount do
     expect(bank_account.balance).to eq(0)
   end
 
-  it 'can deposite money' do
+  it 'can deposit money' do
     bank_account = BankAccount.new
-    expect(bank_account.deposite(10)).to include({ amount: 10, balance: 10, date: bank_account.date,
+    expect(bank_account.deposit(10)).to include({ amount: 10, balance: 10, date: bank_account.date,
                                                    type: 'credit' })
   end
 

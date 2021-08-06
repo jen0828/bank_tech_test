@@ -7,7 +7,7 @@ class BankAccount
     @transactions = []
   end
 
-  def deposite(amount)
+  def deposit(amount)
     @balance += amount
     add_transaction(date, type = 'credit', amount, balance)
   end
