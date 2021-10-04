@@ -3,10 +3,11 @@ require_relative 'statement'
 class BankAccount
   attr_reader :balance, :transactions, :date
 
-  def initialize
+  def initialize ( statement = Statement.new)
     @balance = 0
     @date = Time.now.strftime '%d/%m/%Y'
     @transactions = []
+    @statement = statement
   end
 
   def deposit(amount)
@@ -19,8 +20,11 @@ class BankAccount
     add_transaction(date, type = 'debit', amount, balance)
   end
 
-  private
+  def print_statement
+    @statement.print(@transactions)
+  end
 
+  
   def add_transaction(date, type, amount, balance)
     @transactions.push(date: date, type: type, amount: amount, balance: balance)
   end

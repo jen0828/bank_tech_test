@@ -1,22 +1,23 @@
-
 class Statement
-  def print_statement
-    puts header.to_s
-    account = BankAccount.new
-    transactions = account.transactions
-    transactions.reverse.map do |transaction|
-      if transaction[:type] == 'credit'
-        puts "\n#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
-      else
-        transaction[:type] == 'debit'
-        puts "\n#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
-      end
-    end
+  def print(transactions = [])
+    puts print_header
+    print_transactions(transactions)    
   end
-
+  
   private
 
-  def header
+  def print_header
     'date || credit || debit || balance'
+  end
+
+  def print_transactions(transactions)
+    transactions.reverse.each do |transaction|
+        if transaction[:type] == 'credit'
+          puts "#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
+        else
+          transaction[:type] == 'debit'
+          puts "#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
+        end
+    end
   end
 end
