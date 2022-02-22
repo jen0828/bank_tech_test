@@ -2,7 +2,7 @@ require 'statement'
 
 describe Statement do
   let(:transactions_history) { [transaction1, transaction2] }
-  let(:transaction1) { double(:transaction1, date: Date.today, credit: 10_000, debit: 0, balance: 10_000) }
+  let(:transaction1) { double(:transaction1, date: Date.today, credit: 10000, debit: 0, balance: 10000) }
   let(:transaction2) { double(:transaction2, date: Date.today, credit: 0, debit: 1000, balance: 1000) }
   it 'can print out transactions' do
     expect do

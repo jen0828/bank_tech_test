@@ -39,5 +39,4 @@ describe BankAccount do
   it 'has an empty list of transactions by default' do
     expect(subject.transactions_history).to be_empty
   end
-
 end
