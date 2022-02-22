@@ -37,8 +37,7 @@ describe BankAccount do
   end
 
   it 'has an empty list of transactions by default' do
-    expect(subject.transactions).to be_empty
+    expect(subject.transactions_history).to be_empty
   end
 
-  it { is_expected.to respond_to(:date) }
 end

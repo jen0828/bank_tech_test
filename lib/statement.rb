@@ -1,13 +1,13 @@
 class Statement
   def print(transactions = [])
-    puts print_header
+    print_header
     print_transactions(transactions)
   end
 
   private
 
   def print_header
-    'date || credit || debit || balance'
+    puts 'date || credit || debit || balance'
   end
 
   def print_transactions(transactions)
