@@ -28,7 +28,23 @@ date || credit || debit || balance
 ```
 $ git clone https://github.com/jen0828/bank_tech_test.git
 $ cd bank_tech_test
+$ bundle install
+$ irb
 ```
+
+#### How to run program
+
+Example :
+
+```
+❯ irb
+require './lib/bank_account.rb'
+account = BankAccount.new
+account.deposit(1000)
+account.withdraw(500)
+account.print_statement
+```
+
 #### How to run tests
 ```
 $ rspec
